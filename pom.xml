@@ -3,6 +3,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
                              http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
+<!-- COMMIT FROM ECLIPSE -->
+
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>ar.com.masch.exercise.learning</groupId>
