@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"    
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/util
+                           http://www.springframework.org/schema/util/spring-util.xsd">
+ 
+ 	<bean id="plWT1" class="ar.com.masch.exercise.learning.dto.PlaylistDTO">
+ 		<property name="name" value="plWT1"/>
+ 		<property name="exerciseDTOList">
+			<util:list>
+				<ref bean="wtExercise151"/>
+				<ref bean="wtExercise141"/>
+				<ref bean="wtExercise314"/>
+			</util:list> 	
+ 		</property>
+ 	</bean>
+ 
+ 	<bean id="plWT2" class="ar.com.masch.exercise.learning.dto.PlaylistDTO">
+ 		<property name="name" value="plWT2"/>
+ 		<property name="exerciseDTOList">
+			<util:list>
+				<ref bean="wtExercise151"/>
+				<ref bean="wtExercise141"/>
+			</util:list> 	
+ 		</property>
+ 	</bean>
+
+
+	<util:map id="playlistDTOMapTest">
+	    <entry key="plWT1">
+	    	<ref bean="plWT1"/>
+	    </entry>
+	    <entry key="plWT2">
+	    	<ref bean="plWT2"/>
+	    </entry>	    
+	</util:map> 
+		
+</beans>

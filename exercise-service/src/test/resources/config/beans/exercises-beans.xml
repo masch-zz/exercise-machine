@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                        http://www.springframework.org/schema/beans/spring-beans.xsd
+                        http://www.springframework.org/schema/context 
+                        http://www.springframework.org/schema/context/spring-context.xsd">
+ 
+	<bean id="wtChapter1" class="ar.com.masch.exercise.learning.dto.exercise.ChapterExerciseDTO">
+		<property name="index" value="1"/>
+		<property name="name" value="Rebound Strokes"/>
+	</bean>
+	
+	<bean id="wtChapter3" class="ar.com.masch.exercise.learning.dto.exercise.ChapterExerciseDTO">
+		<property name="index" value="3"/>
+		<property name="name" value="Single Stroke Rolls"/>
+	</bean>	
+
+	<bean id="wtLevel1" class="ar.com.masch.exercise.learning.dto.exercise.LevelExerciseDTO">
+		<property name="index" value="1"/>
+		<property name="name" value="WT Level 1"/>
+	</bean>
+
+	<bean id="wtLevel2" class="ar.com.masch.exercise.learning.dto.exercise.LevelExerciseDTO">
+		<property name="index" value="2"/>
+		<property name="name" value="WT Level 2"/>
+	</bean>
+
+	<bean id="wtLevel3" class="ar.com.masch.exercise.learning.dto.exercise.LevelExerciseDTO">
+		<property name="index" value="3"/>
+		<property name="name" value="WT Level 3"/>
+	</bean>
+	
+	<bean id="wtLevel4" class="ar.com.masch.exercise.learning.dto.exercise.LevelExerciseDTO">
+		<property name="index" value="4"/>
+		<property name="name" value="WT Level 4"/>
+	</bean>	
+	
+	<bean id="wtExercise151" class="ar.com.masch.exercise.learning.dto.exercise.ExerciseDTO">
+		<property name="index" value="5"/>
+		<property name="name" value="WT Exercise 151"/>
+		<property name="chapterExerciseDTO" ref="wtChapter1"/>
+		<property name="levelExerciseDTO" ref="wtLevel1"/>
+	</bean>
+	
+	<bean id="wtExercise141" class="ar.com.masch.exercise.learning.dto.exercise.ExerciseDTO">
+		<property name="index" value="4"/>
+		<property name="name" value="WT Exercise 141"/>
+		<property name="chapterExerciseDTO" ref="wtChapter1"/>
+		<property name="levelExerciseDTO" ref="wtLevel1"/>
+	</bean>	
+	
+	<bean id="wtExercise314" class="ar.com.masch.exercise.learning.dto.exercise.ExerciseDTO">
+		<property name="index" value="1"/>
+		<property name="name" value="WT Exercise 314"/>
+		<property name="chapterExerciseDTO" ref="wtChapter3"/>
+		<property name="levelExerciseDTO" ref="wtLevel4"/>
+	</bean>	
+		
+</beans>
