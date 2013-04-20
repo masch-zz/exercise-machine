@@ -2,9 +2,18 @@ package ar.com.masch.exercise.learning.dto.book;
 
 public class AuthorDTO {
 	
+	private String index;
 	private String lastName;
 	private String firstName;
 	private String middleName;
+	
+	public String getIndex() {
+		return index;
+	}
+
+	public void setIndex(String index) {
+		this.index = index;
+	}
 	
 	public String getLastName() {
 		return lastName;

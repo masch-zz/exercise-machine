@@ -1,13 +1,22 @@
 package ar.com.masch.exercise.learning.dto.book;
 
 public class BookDTO {
+	
 	private String name;
+	private String index;
 	private Integer pages;
 	private String isbn10;
 	private String isbn13;
 	private String language;
 	
+	public String getIndex() {
+		return index;
+	}
 
+	public void setIndex(String index) {
+		this.index = index;
+	}
+	
 	public String getName() {
 		return name;
 	}
@@ -44,7 +53,7 @@ public class BookDTO {
 		return pages;
 	}
 	
-	public void setHardcover(Integer pages) {
+	public void setPages(Integer pages) {
 		this.pages= pages;
 	}
 		
