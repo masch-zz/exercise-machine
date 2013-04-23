@@ -1,4 +1,4 @@
-package ar.com.masch.exercise.learning.dto.book;
+package ar.com.masch.exercise.learning.dto.base;
 
 public class BookDTO {
 	
