@@ -6,21 +6,25 @@ public class ExerciseBaseEntity extends BaseEntity {
 
 	private LevelBaseEntity levelBaseEntity;
 	private ExerciseBaseEntity exerciseBaseEntity;
-	
+
+	public ExerciseBaseEntity(Long id) {
+		super(id);
+	}
+
 	public LevelBaseEntity getLevelBaseEntity() {
 		return levelBaseEntity;
 	}
-	
+
 	public void setLevelBaseEntity(LevelBaseEntity levelBaseEntity) {
 		this.levelBaseEntity = levelBaseEntity;
 	}
-	
+
 	public ExerciseBaseEntity getExerciseBaseEntity() {
 		return exerciseBaseEntity;
 	}
-	
+
 	public void setExerciseBaseEntity(ExerciseBaseEntity exerciseBaseEntity) {
 		this.exerciseBaseEntity = exerciseBaseEntity;
 	}
-	
+
 }

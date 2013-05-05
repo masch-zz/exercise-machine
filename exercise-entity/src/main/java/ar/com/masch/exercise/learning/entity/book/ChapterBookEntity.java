@@ -8,7 +8,11 @@ import ar.com.masch.exercise.learning.entity.base.NameBaseEntity;
 public class ChapterBookEntity extends NameBaseEntity {
 	
 	private List<ExerciseBaseEntity> exercisesBookList;
-	
+
+	public ChapterBookEntity(Long id, String name) {
+		super(id, name);
+	}	
+
 	public List<ExerciseBaseEntity> getExercisesBookList() {
 		return exercisesBookList;
 	}
