@@ -4,29 +4,44 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNotEquals;
 
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.transaction.TransactionConfiguration;
+
 import ar.com.masch.exercise.learning.entity.base.AuthorEntity;
 
-public class AuthorCRUDRepositoryTestImpl implements CRUDRepositoryTest<AuthorEntity> {
+@Transactional
+@TransactionConfiguration
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration("/ctx/exercise-repository-test-context.xml")
+public class AuthorCRUDRepositoryTestImpl extends CRUDRepositoryBaseTest<AuthorEntity> {
 
-    public AuthorEntity authorEntityName1 = new AuthorEntity(null, "authorName1", "authorLastName1", "authorFirstName1", "authorMiddleName1");
-    public AuthorEntity authorEntityName2 = new AuthorEntity(null, "authorName2", "authorLastName2", "authorFirstName2", "authorMiddleName2");
+	@Autowired
+	private AuthorRepository authorRepository;	
+	
 	
 	@Override
-	public AuthorEntity getNewElement(String key) {
-		AuthorEntity temp = null;
-		AuthorEntity result = null;	
+	public void fillElementsSamples() {
+
+		this.elementsSamples.clear();
+		this.elementsSamples.add(new AuthorEntity(null, "authorName1", "authorLastName1", "authorFirstName1", "authorMiddleName1"));
+		this.elementsSamples.add(new AuthorEntity(null, "authorName2", "authorLastName2", "authorFirstName2", "authorMiddleName2"));
+
+	}
+
+	@Override
+	public void searchElements() {
 		
-		if (key.equals(authorEntityName1.getName())) {
-			temp = authorEntityName1;
-		}else if (key.equals(authorEntityName2.getName())) {
-			temp = authorEntityName2;
+		for (AuthorEntity authorEntity : elementsSamples) {
+			AuthorEntity authorEntitySearched = this.authorRepository.findByName(authorEntity.getName());
+			assertNotNull(authorEntitySearched);
+			this.elementsSearched.add(authorEntitySearched);
 		}
 		
-		if (temp != null) {
-			result =  new AuthorEntity(temp.getId(), temp.getName(), temp.getLastName(), temp.getFirstName(), temp.getMiddleName());
-		}
-		
-		return result;
 	}
 	
 	@Override
@@ -41,7 +56,13 @@ public class AuthorCRUDRepositoryTestImpl implements CRUDRepositoryTest<AuthorEn
 		assertEquals(obj1.getLastName(), obj2.getLastName());
 		assertEquals(obj1.getFirstName(), obj2.getFirstName());
 		assertEquals(obj1.getMiddleName(), obj2.getMiddleName());
-
+		
 	}
+	
+	@Test
+	public void doTest() {
+		super.doTest(this.authorRepository);
+	}
+	
 
 }
