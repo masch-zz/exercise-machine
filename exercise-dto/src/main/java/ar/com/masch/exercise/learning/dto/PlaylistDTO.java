@@ -1,5 +1,5 @@
 package ar.com.masch.exercise.learning.dto;
-//Test
+
 import java.util.List;
 
 import ar.com.masch.exercise.learning.dto.exercise.ExerciseDTO;
