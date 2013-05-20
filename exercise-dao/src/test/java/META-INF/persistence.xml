@@ -8,17 +8,21 @@
 
     <persistence-unit name="hsql">
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
+
         <class>ar.com.masch.exercise.learning.entity.base.AuthorEntity</class>
+        <class>ar.com.masch.exercise.learning.entity.base.LevelBaseEntity</class>
+        <class>ar.com.masch.exercise.learning.entity.base.ExerciseBaseEntity</class>
         
         <properties>
-            <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect" />
             <property name="hibernate.show_sql" value="true" />
             <property name="hibernate.hbm2ddl.auto" value="update" />
-            <property name="hibernate.ejb.naming_strategy" value="org.hibernate.cfg.ImprovedNamingStrategy"/>
-            <property name="hibernate.cache.provider_class" value="org.hibernate.cache.HashtableCacheProvider" />
-            <property name="jadira.usertype.autoRegisterUserTypes" value="true" />
             <property name="jadira.usertype.databaseZone" value="jvm" />
+            <property name="jadira.usertype.autoRegisterUserTypes" value="true" />
+            <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect" />
+            <property name="hibernate.ejb.naming_strategy" value="org.hibernate.cfg.ImprovedNamingStrategy" />
+            <property name="hibernate.cache.provider_class" value="org.hibernate.cache.HashtableCacheProvider" />
         </properties>
+
     </persistence-unit>
     
 </persistence>

@@ -1,14 +1,23 @@
 package ar.com.masch.exercise.learning.entity.base;
 
+import javax.persistence.Table;
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.JoinColumn;
+
 import ar.com.masch.exercise.learning.entity.base.ExerciseBaseEntity;
 
-public class ExerciseBaseEntity extends BaseEntity {
+@Table(name = "exercise_base")
+@Entity(name = "exercise_base")
+public class ExerciseBaseEntity extends NameBaseEntity {
 
+	@ManyToOne(/*fetch = FetchType.LAZY*/)
+	@JoinColumn(name = "LEVEL_ID", nullable = false)
 	private LevelBaseEntity levelBaseEntity;
-	private ExerciseBaseEntity exerciseBaseEntity;
 
-	public ExerciseBaseEntity(Long id) {
-		super(id);
+	public ExerciseBaseEntity(Long id, String name, LevelBaseEntity levelBaseEntity) {
+		super(id, name);
+		this.levelBaseEntity = levelBaseEntity;
 	}
 
 	public LevelBaseEntity getLevelBaseEntity() {
@@ -17,14 +26,6 @@ public class ExerciseBaseEntity extends BaseEntity {
 
 	public void setLevelBaseEntity(LevelBaseEntity levelBaseEntity) {
 		this.levelBaseEntity = levelBaseEntity;
-	}
-
-	public ExerciseBaseEntity getExerciseBaseEntity() {
-		return exerciseBaseEntity;
-	}
-
-	public void setExerciseBaseEntity(ExerciseBaseEntity exerciseBaseEntity) {
-		this.exerciseBaseEntity = exerciseBaseEntity;
 	}
 
 }

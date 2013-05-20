@@ -6,7 +6,6 @@
 	   xsi:schemaLocation="http://www.springframework.org/schema/beans
                            http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean id="authorCRUDRepositoryTest" class="ar.com.masch.exercise.learning.repository.AuthorCRUDRepositoryTestImpl">
-	</bean>
+	<bean id="levelBaseRepositoryTest" class="ar.com.masch.exercise.learning.repository.base.LevelBaseRepositoryTest" />
 
 </beans>
