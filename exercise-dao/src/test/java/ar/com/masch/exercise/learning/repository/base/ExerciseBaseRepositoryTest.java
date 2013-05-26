@@ -1,6 +1,7 @@
 package ar.com.masch.exercise.learning.repository.base;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
@@ -27,12 +28,26 @@ public class ExerciseBaseRepositoryTest extends CRUDRepositoryBaseTest<ExerciseB
 	
 	@Override
 	public void fillElementsSamples() {
+		ArrayList<ExerciseBaseEntity> elementsSamples = new ArrayList<ExerciseBaseEntity>();
 		
 		this.levelBaseEntity1 = this.levelBaseRepositoryTest.getElementsCreated().get(0);
 		this.levelBaseEntity2 = this.levelBaseRepositoryTest.getElementsCreated().get(1);
+
+		ArrayList<ExerciseBaseEntity> elementsSamplesByLevelBase1 = new ArrayList<ExerciseBaseEntity>();
 		
-		this.elementsSamples.add(new ExerciseBaseEntity(null, "exerciseBaseName1", this.levelBaseEntity1));
-		this.elementsSamples.add(new ExerciseBaseEntity(null, "exerciseBaseName2", this.levelBaseEntity2));
+		for (int i = 0; i < 5; ++i) {
+			ExerciseBaseEntity exerciseBaseEntity1  = new ExerciseBaseEntity(null, "exerciseBaseName" + i, this.levelBaseEntity1);
+			ExerciseBaseEntity exerciseBaseEntity2  = new ExerciseBaseEntity(null, "exerciseBaseName" + i+1, this.levelBaseEntity2);
+			
+			elementsSamples.add(exerciseBaseEntity1);
+			elementsSamples.add(exerciseBaseEntity2);
+			
+			//Creo 5 elementos con level 2 para buscarlos despues
+			elementsSamplesByLevelBase1.add(exerciseBaseEntity2);
+		}
+
+		this.addSamples(elementsSamples);
+		this.addSamples(elementsSamplesByLevelBase1);
 		
 	}
 
@@ -40,32 +55,28 @@ public class ExerciseBaseRepositoryTest extends CRUDRepositoryBaseTest<ExerciseB
 	public void searchElements() {
 		
 		ArrayList<ExerciseBaseEntity> elementsSearchedByName = new ArrayList<ExerciseBaseEntity>();
-		ArrayList<ExerciseBaseEntity> elementsSearchedByLevel = new ArrayList<ExerciseBaseEntity>();
 		
-		for (ExerciseBaseEntity exerciseBaseEntity : this.elementsSamples) {
-			//Find By Name
-			ExerciseBaseEntity exerciseBaseEntityFindByName = this.exerciseBaseRepository.findByName(exerciseBaseEntity.getName());
-			assertNotNull(exerciseBaseEntityFindByName);
-			elementsSearchedByName.add(exerciseBaseEntityFindByName);
-			
-			//Find By Level
-			ExerciseBaseEntity exerciseBaseEntityFindByLevel = this.exerciseBaseRepository.findByLevelBaseEntity(exerciseBaseEntity.getLevelBaseEntity());
-			assertNotNull(exerciseBaseEntityFindByLevel);
-			elementsSearchedByLevel.add(exerciseBaseEntityFindByLevel);
+		//Find By Name
+		for (ExerciseBaseEntity exerciseBaseEntity : this.getElementsSamples()) {
+			ExerciseBaseEntity elementSearchedByName = this.exerciseBaseRepository.findByName(exerciseBaseEntity.getName());
+			assertNotNull(elementSearchedByName);
+			elementsSearchedByName.add(elementSearchedByName);
 		}
+		this.addSearched(elementsSearchedByName);
 		
-		this.elementsSearched.add(elementsSearchedByName);
-		this.elementsSearched.add(elementsSearchedByLevel);
+		//Find By Level
+		List<ExerciseBaseEntity> elementSearchedByLevel = this.exerciseBaseRepository.findByLevelBaseEntityOrderByNameAsc(levelBaseEntity2);
+		this.addSearched((ArrayList<ExerciseBaseEntity>) elementSearchedByLevel);
 		
 	}
-
+	
 	@Override
 	public void assertValues(ExerciseBaseEntity obj1, ExerciseBaseEntity obj2) {
 		super.assertNotEqualsValuesBase(obj1, obj2);
 		
 		//assertEquals(obj1.getId(), obj2.getId());
 		assertEquals(obj1.getName(), obj2.getName());
-
+		
 		this.levelBaseRepositoryTest.assertEqualsValuesBase(obj1.getLevelBaseEntity(), obj2.getLevelBaseEntity());
 		
 	}

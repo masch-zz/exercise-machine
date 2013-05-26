@@ -28,4 +28,10 @@ public class ExerciseBaseEntity extends NameBaseEntity {
 		this.levelBaseEntity = levelBaseEntity;
 	}
 
+	@Override
+	public String toString() {
+		String result = super.toString() + 
+				        "\nLevelBase: " + this.levelBaseEntity.toString() + "\n";
+		return result;
+	}	
 }

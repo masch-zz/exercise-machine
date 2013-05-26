@@ -6,6 +6,7 @@
 	   xsi:schemaLocation="http://www.springframework.org/schema/beans
                            http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+	<import resource="classpath:ctx/logger/exercise-repository-logger.xml" />
 	<import resource="classpath:ctx/test/exercise-repository-test-beans.xml" />
 	<import resource="classpath:ctx/repository/exercise-repository-test-repository.xml" />
 

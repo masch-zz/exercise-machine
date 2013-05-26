@@ -11,6 +11,7 @@
 
         <class>ar.com.masch.exercise.learning.entity.base.AuthorEntity</class>
         <class>ar.com.masch.exercise.learning.entity.base.LevelBaseEntity</class>
+        <class>ar.com.masch.exercise.learning.entity.base.RoutineBaseEntity</class>
         <class>ar.com.masch.exercise.learning.entity.base.ExerciseBaseEntity</class>
         
         <properties>

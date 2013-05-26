@@ -28,6 +28,13 @@ public class BaseEntity {
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
+	@Override
+	public String toString() {
+		String result = "Hash: " + this.hashCode() + 
+				        "\nId: " + this.getId();
+		return result;
+	}	
 
 	@Override
 	public boolean equals(Object obj) {
