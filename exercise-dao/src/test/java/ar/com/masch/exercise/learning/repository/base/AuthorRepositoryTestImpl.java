@@ -19,9 +19,15 @@ public class AuthorRepositoryTestImpl extends CRUDRepositoryBaseTest<AuthorEntit
 
 	@Override
 	public void fillElementsSamples() {
+		
+		ArrayList<AuthorEntity> elementsSamples = new ArrayList<AuthorEntity>();
 
-		this.elementsSamples.add(new AuthorEntity(null, "authorName1", "authorLastName1", "authorFirstName1", "authorMiddleName1"));
-		this.elementsSamples.add(new AuthorEntity(null, "authorName2", "authorLastName2", "authorFirstName2", "authorMiddleName2"));
+		for (int i = 0; i < 5; ++i) {
+			elementsSamples.add(new AuthorEntity(null, "authorName" + i, "authorLastName" + i, "authorFirstName" + i, "authorMiddleName" + i));
+		}
+		
+		this.addSamples(elementsSamples);
+		this.addSamples(elementsSamples);
 
 	}
 
@@ -31,20 +37,20 @@ public class AuthorRepositoryTestImpl extends CRUDRepositoryBaseTest<AuthorEntit
 		ArrayList<AuthorEntity> elementsSearchedByName = new ArrayList<AuthorEntity>();
 		ArrayList<AuthorEntity> elementsSearchedByLastName = new ArrayList<AuthorEntity>();
 		
-		for (AuthorEntity authorEntity : this.elementsSamples) {
+		for (AuthorEntity authorEntity : this.getElementsSamples()) {
 			//Find By Name
-			AuthorEntity authorEntitySearchedByName = this.authorRepository.findByName(authorEntity.getName());
-			assertNotNull(authorEntitySearchedByName);
-			elementsSearchedByName.add(authorEntitySearchedByName);
+			AuthorEntity elementSearchedByName = this.authorRepository.findByName(authorEntity.getName());
+			assertNotNull(elementSearchedByName);
+			elementsSearchedByName.add(elementSearchedByName);
 			
 			//Find By Last Name
-			AuthorEntity authorEntitySearchedByLastName = this.authorRepository.findByLastName(authorEntity.getLastName());
-			assertNotNull(authorEntitySearchedByLastName);
-			elementsSearchedByLastName.add(authorEntitySearchedByLastName);
+			AuthorEntity elementSearchedByLastName = this.authorRepository.findByLastName(authorEntity.getLastName());
+			assertNotNull(elementSearchedByLastName);
+			elementsSearchedByLastName.add(elementSearchedByLastName);
 		}
 		
-		this.elementsSearched.add(elementsSearchedByName);
-		this.elementsSearched.add(elementsSearchedByLastName);
+		this.addSearched(elementsSearchedByName);
+		this.addSearched(elementsSearchedByLastName);
 
 	}
 	

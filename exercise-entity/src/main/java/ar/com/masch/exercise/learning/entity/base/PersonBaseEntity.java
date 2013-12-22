@@ -1,7 +1,9 @@
 package ar.com.masch.exercise.learning.entity.base;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.Table;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
 

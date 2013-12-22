@@ -10,7 +10,7 @@
  
  	<!-- BEANS -->
     <import resource="beans/exercises-beans.xml"/>
-    <import resource="beans/exercises-playlists-beans.xml"/>
+    <import resource="beans/exercises-routines-beans.xml"/>
 
     <!-- SERVICES -->
     <import resource="services/exercises-services.xml"/>

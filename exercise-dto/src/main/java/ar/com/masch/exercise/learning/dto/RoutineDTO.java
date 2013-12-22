@@ -4,7 +4,7 @@ import java.util.List;
 
 import ar.com.masch.exercise.learning.dto.exercise.ExerciseDTO;
 
-public class PlaylistDTO {
+public class RoutineDTO {
 
 	private String name;
 	private List<ExerciseDTO> exerciseDTOList;

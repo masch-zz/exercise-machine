@@ -45,6 +45,13 @@
 		<property name="levelExerciseDTO" ref="wtLevel1"/>
 	</bean>
 	
+	<bean id="wtExercise152" class="ar.com.masch.exercise.learning.dto.exercise.ExerciseDTO">
+		<property name="index" value="5"/>
+		<property name="name" value="WT Exercise 151"/>
+		<property name="chapterExerciseDTO" ref="wtChapter1"/>
+		<property name="levelExerciseDTO" ref="wtLevel2"/>
+	</bean>
+	
 	<bean id="wtExercise141" class="ar.com.masch.exercise.learning.dto.exercise.ExerciseDTO">
 		<property name="index" value="4"/>
 		<property name="name" value="WT Exercise 141"/>

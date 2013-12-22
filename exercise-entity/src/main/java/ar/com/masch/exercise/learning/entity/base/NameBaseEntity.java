@@ -25,6 +25,13 @@ public class NameBaseEntity extends BaseEntity {
 	}
 	
 	@Override
+	public String toString() {
+		String result = super.toString() + 
+				        "\nName: " + this.getName();
+		return result;
+	}	
+	
+	@Override
 	public boolean equals(Object obj) {
 	
 		NameBaseEntity rhs = (NameBaseEntity) obj;

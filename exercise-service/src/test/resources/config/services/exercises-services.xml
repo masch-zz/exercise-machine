@@ -8,8 +8,8 @@
                         http://www.springframework.org/schema/context 
                         http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<bean id="playlistService" class="ar.com.masch.exercise.learning.service.impl.PlaylistServiceImpl">
-		<property name="playlistDTOMapTest" ref="playlistDTOMapTest" />
+	<bean id="routineService" class="ar.com.masch.exercise.learning.service.impl.RoutineServiceImpl">
+		<property name="routineDTOMapTest" ref="routineDTOMapTest" />
 	</bean> 
 
 </beans>

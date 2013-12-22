@@ -19,9 +19,14 @@ public class LevelBaseRepositoryTest extends CRUDRepositoryBaseTest<LevelBaseEnt
 
 	@Override
 	public void fillElementsSamples() {
+
+		ArrayList<LevelBaseEntity> elementsSamples = new ArrayList<LevelBaseEntity>();
 		
-		this.elementsSamples.add(new LevelBaseEntity(null, "levelBaseName1"));
-		this.elementsSamples.add(new LevelBaseEntity(null, "levelBaseName2"));
+		for (int i = 0; i < 6; ++i) {
+			elementsSamples.add(new LevelBaseEntity(null, "levelBaseName" + i));
+		}
+
+		this.addSamples(elementsSamples);
 		
 	}
 
@@ -29,14 +34,14 @@ public class LevelBaseRepositoryTest extends CRUDRepositoryBaseTest<LevelBaseEnt
 	public void searchElements() {
 		ArrayList<LevelBaseEntity> elementsSearchedByName = new ArrayList<LevelBaseEntity>();
 		
-		for (LevelBaseEntity levelBaseEntity : this.elementsSamples) {
+		for (LevelBaseEntity levelBaseEntity : this.getElementsSamples()) {
 			//Find By Name
-			LevelBaseEntity levelBaseEntitySearchedByName = this.levelBaseRepository.findByName(levelBaseEntity.getName());
-			assertNotNull(levelBaseEntitySearchedByName);
-			elementsSearchedByName.add(levelBaseEntitySearchedByName);
+			LevelBaseEntity elementSearchedByName = this.levelBaseRepository.findByName(levelBaseEntity.getName());
+			assertNotNull(elementSearchedByName);
+			elementsSearchedByName.add(elementSearchedByName);
 		}
 		
-		this.elementsSearched.add(elementsSearchedByName);
+		this.addSearched(elementsSearchedByName);
 	}
 
 	@Override
