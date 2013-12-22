@@ -12,7 +12,7 @@ import ar.com.masch.exercise.learning.dto.RoutineDTO;
 import ar.com.masch.exercise.learning.service.RoutineService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("/config/exercises-application-context.xml")
+@ContextConfiguration("/ctx/exercises-application-context.xml")
 public class RoutineServiceTest {
 	
 	@Resource
