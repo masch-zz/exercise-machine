@@ -16,6 +16,10 @@ public class BaseEntity {
 	@Column(name = "ID", unique = true, nullable = false)
 	private Long id;
 
+	public BaseEntity() {
+		super();
+	}
+	
 	public BaseEntity(Long id) {
 		super();
 		this.id = id;

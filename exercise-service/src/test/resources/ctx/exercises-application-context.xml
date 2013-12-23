@@ -12,6 +12,9 @@
     <import resource="beans/exercises-beans.xml"/>
     <import resource="beans/exercises-routines-beans.xml"/>
 
+	<!-- REPOSITORY -->
+	<import resource="repository/exercise-repository-test-repository.xml"/>
+
     <!-- SERVICES -->
     <import resource="services/exercises-services.xml"/>
     

@@ -9,6 +9,10 @@ import org.apache.commons.lang.builder.EqualsBuilder;
 @Entity(name = "author")
 public class AuthorEntity extends PersonBaseEntity {
 
+	public AuthorEntity() {
+		super();
+	}
+	
 	public AuthorEntity(Long id, String name, String lastName, String firstName, String middleName) {
 		super(id, name, lastName, firstName, middleName);
 	}

@@ -1,15 +1,13 @@
 package ar.com.masch.exercise.learning.entity.base;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.MappedSuperclass;
-import javax.persistence.Table;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
 
 @MappedSuperclass
 public class PersonBaseEntity extends NameBaseEntity {
-
+	
 	// TODO: Ver la diferencia de length y la definicion de la longitud del varchar
 	@Column(name = "LAST_NAME", nullable = false, length = 40, columnDefinition = "VARCHAR(40)")
 	private String lastName;
@@ -20,6 +18,10 @@ public class PersonBaseEntity extends NameBaseEntity {
 	@Column(name = "MIDDLE_NAME", nullable = false, length = 40, columnDefinition = "VARCHAR(40)")
 	private String middleName;
 
+	public PersonBaseEntity() {
+		super();
+	}
+	
 	public PersonBaseEntity(Long id, String name, String lastName, String firstName, String middleName) {
 		super(id, name);
 		this.lastName = lastName;

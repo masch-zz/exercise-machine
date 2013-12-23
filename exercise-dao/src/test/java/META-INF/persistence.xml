@@ -13,6 +13,7 @@
         <class>ar.com.masch.exercise.learning.entity.base.LevelBaseEntity</class>
         <class>ar.com.masch.exercise.learning.entity.base.RoutineBaseEntity</class>
         <class>ar.com.masch.exercise.learning.entity.base.ExerciseBaseEntity</class>
+        <class>ar.com.masch.exercise.learning.entity.base.ExerciseLevelBaseEntity</class>
         
         <properties>
             <property name="hibernate.show_sql" value="true" />

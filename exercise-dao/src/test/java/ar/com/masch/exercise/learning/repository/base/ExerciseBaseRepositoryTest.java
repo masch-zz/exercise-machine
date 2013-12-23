@@ -1,7 +1,6 @@
 package ar.com.masch.exercise.learning.repository.base;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
@@ -9,7 +8,6 @@ import static org.junit.Assert.assertNotNull;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import ar.com.masch.exercise.learning.entity.base.LevelBaseEntity;
 import ar.com.masch.exercise.learning.entity.base.ExerciseBaseEntity;
 import ar.com.masch.exercise.learning.repository.CRUDRepositoryBaseTest;
 import ar.com.masch.exercise.learning.repository.ExerciseBaseRepository;
@@ -17,37 +15,25 @@ import ar.com.masch.exercise.learning.repository.ExerciseBaseRepository;
 public class ExerciseBaseRepositoryTest extends CRUDRepositoryBaseTest<ExerciseBaseEntity> {
 
 	@Autowired
-	private ExerciseBaseRepository exerciseBaseRepository;
-
-	@Autowired
-	private LevelBaseRepositoryTest levelBaseRepositoryTest;
-	
-	private LevelBaseEntity levelBaseEntity1;
-	private LevelBaseEntity levelBaseEntity2;
-	
+	private ExerciseBaseRepository exerciseBaseRepository;	
 	
 	@Override
 	public void fillElementsSamples() {
 		ArrayList<ExerciseBaseEntity> elementsSamples = new ArrayList<ExerciseBaseEntity>();
 		
-		this.levelBaseEntity1 = this.levelBaseRepositoryTest.getElementsCreated().get(0);
-		this.levelBaseEntity2 = this.levelBaseRepositoryTest.getElementsCreated().get(1);
-
-		ArrayList<ExerciseBaseEntity> elementsSamplesByLevelBase1 = new ArrayList<ExerciseBaseEntity>();
-		
 		for (int i = 0; i < 5; ++i) {
-			ExerciseBaseEntity exerciseBaseEntity1  = new ExerciseBaseEntity(null, "exerciseBaseName" + i, this.levelBaseEntity1);
-			ExerciseBaseEntity exerciseBaseEntity2  = new ExerciseBaseEntity(null, "exerciseBaseName" + i+1, this.levelBaseEntity2);
+			ExerciseBaseEntity exerciseBaseEntity1 = new ExerciseBaseEntity(null, "exerciseBaseName" + i/*, this.levelBaseEntity1*/);
+			ExerciseBaseEntity exerciseBaseEntity2 = new ExerciseBaseEntity(null, "exerciseBaseName" + i+1/*, this.levelBaseEntity2*/);
 			
 			elementsSamples.add(exerciseBaseEntity1);
 			elementsSamples.add(exerciseBaseEntity2);
 			
 			//Creo 5 elementos con level 2 para buscarlos despues
-			elementsSamplesByLevelBase1.add(exerciseBaseEntity2);
+			//elementsSamplesByLevelBase1.add(exerciseBaseEntity2);
 		}
 
 		this.addSamples(elementsSamples);
-		this.addSamples(elementsSamplesByLevelBase1);
+		//this.addSamples(elementsSamplesByLevelBase1);
 		
 	}
 
@@ -65,8 +51,8 @@ public class ExerciseBaseRepositoryTest extends CRUDRepositoryBaseTest<ExerciseB
 		this.addSearched(elementsSearchedByName);
 		
 		//Find By Level
-		List<ExerciseBaseEntity> elementSearchedByLevel = this.exerciseBaseRepository.findByLevelBaseEntityOrderByNameAsc(levelBaseEntity2);
-		this.addSearched((ArrayList<ExerciseBaseEntity>) elementSearchedByLevel);
+		/*List<ExerciseBaseEntity> elementSearchedByLevel = this.exerciseBaseRepository.findByLevelBaseEntityOrderByNameAsc(levelBaseEntity2);
+		this.addSearched((ArrayList<ExerciseBaseEntity>) elementSearchedByLevel);*/
 		
 	}
 	
@@ -77,14 +63,14 @@ public class ExerciseBaseRepositoryTest extends CRUDRepositoryBaseTest<ExerciseB
 		//assertEquals(obj1.getId(), obj2.getId());
 		assertEquals(obj1.getName(), obj2.getName());
 		
-		this.levelBaseRepositoryTest.assertEqualsValuesBase(obj1.getLevelBaseEntity(), obj2.getLevelBaseEntity());
+		//this.levelBaseRepositoryTest.assertEqualsValuesBase(obj1.getLevelBaseEntity(), obj2.getLevelBaseEntity());
 		
 	}
 
 	@Test
 	public void doTest() {
 
-		this.levelBaseRepositoryTest.doTest();
+		//this.levelBaseRepositoryTest.doTest();
 		super.doTest(this.exerciseBaseRepository);
 
 	}	

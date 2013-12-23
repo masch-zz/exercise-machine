@@ -8,6 +8,10 @@ import org.apache.commons.lang.builder.EqualsBuilder;
 @MappedSuperclass
 public class NameBaseEntity extends BaseEntity {
 
+	public NameBaseEntity() {
+		super();
+	}
+	
 	public NameBaseEntity(Long id, String name) {
 		super(id);
 		this.name = name;

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import org.apache.log4j.Logger;
 import org.junit.runner.RunWith;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNotEquals;
@@ -27,8 +28,8 @@ public abstract class CRUDRepositoryBaseTest<T> {
 	private List<ArrayList<T>> elementsSamples = new ArrayList<ArrayList<T>>();
 	private List<ArrayList<T>> elementsSearched = new ArrayList<ArrayList<T>>();
 	
-	public abstract void searchElements();
 	public abstract void fillElementsSamples();
+	public abstract void searchElements();
 	public abstract void assertValues(T obj1, T obj2);
 	
 	public List<T> getElementsSamples() {
@@ -91,7 +92,7 @@ public abstract class CRUDRepositoryBaseTest<T> {
 	public void createElments(CrudRepository<T, Long> repository) {
 		
 		logger.debug("Entering create elements ...");
-		
+				
 		for (T element : this.elementsSamples.get(0)) {
 			logger.debug("\tSaving element ...");
 			T authorEntityCreated = repository.save(element);
