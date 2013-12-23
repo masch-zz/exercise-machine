@@ -1,5 +1,6 @@
 package ar.com.masch.exercise.learning.entity.base;
 
+import javax.persistence.Column;
 import javax.persistence.Table;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -9,6 +10,9 @@ import javax.persistence.JoinColumn;
 @Entity(name = "exercise_level_base")
 public class ExerciseLevelBaseEntity extends BaseEntity {
 
+	@Column(name = "VELOCITY", nullable = true)
+	private Long velocity;
+	
 	@ManyToOne(/*fetch = FetchType.LAZY*/)
 	@JoinColumn(name = "LEVEL_ID", nullable = false)
 	private LevelBaseEntity levelBaseEntity;
@@ -21,10 +25,19 @@ public class ExerciseLevelBaseEntity extends BaseEntity {
 		super();
 	}
 	
-	public ExerciseLevelBaseEntity(Long id, LevelBaseEntity levelBaseEntity, ExerciseBaseEntity exerciseBaseEntity) {
+	public ExerciseLevelBaseEntity(Long id, LevelBaseEntity levelBaseEntity, ExerciseBaseEntity exerciseBaseEntity, Long velocity) {
 		super(id);
+		this.velocity = velocity;
 		this.levelBaseEntity = levelBaseEntity;
 		this.exerciseBaseEntity = exerciseBaseEntity;
+	}
+	
+	public Long getVelocity() {
+		return velocity;
+	}
+	
+	public void setVelocity(Long velocity) {
+		this.velocity = velocity;
 	}
 	
 	public LevelBaseEntity getLevelBaseEntity() {
@@ -46,7 +59,8 @@ public class ExerciseLevelBaseEntity extends BaseEntity {
 	@Override
 	public String toString() {
 		String result = super.toString() + 
-				        "\nLevelBase: " + this.levelBaseEntity.toString() + "\n" +
+		        		"\nVelocity: " + this.velocity.toString() + 
+				        "\nLevelBase: " + this.levelBaseEntity.toString() +
 				        "\nExerciseBase: " + this.exerciseBaseEntity.toString() + "\n";
 		return result;
 	}	

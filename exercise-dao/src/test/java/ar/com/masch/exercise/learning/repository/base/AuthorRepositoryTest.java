@@ -12,7 +12,7 @@ import ar.com.masch.exercise.learning.entity.base.AuthorEntity;
 import ar.com.masch.exercise.learning.repository.AuthorRepository;
 import ar.com.masch.exercise.learning.repository.CRUDRepositoryBaseTest;
 
-public class AuthorRepositoryTestImpl extends CRUDRepositoryBaseTest<AuthorEntity> {
+public class AuthorRepositoryTest extends CRUDRepositoryBaseTest<AuthorEntity> {
 
 	@Autowired
 	private AuthorRepository authorRepository;	

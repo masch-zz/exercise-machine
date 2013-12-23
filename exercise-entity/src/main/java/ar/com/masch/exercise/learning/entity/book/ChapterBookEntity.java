@@ -2,8 +2,8 @@ package ar.com.masch.exercise.learning.entity.book;
 
 import java.util.List;
 
-import ar.com.masch.exercise.learning.entity.base.ExerciseBaseEntity;
 import ar.com.masch.exercise.learning.entity.base.NameBaseEntity;
+import ar.com.masch.exercise.learning.entity.base.ExerciseBaseEntity;
 
 public class ChapterBookEntity extends NameBaseEntity {
 	

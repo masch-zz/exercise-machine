@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 import org.junit.Test;
+import static org.junit.Assert.assertEquals;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import ar.com.masch.exercise.learning.entity.base.ExerciseBaseEntity;
@@ -41,8 +42,8 @@ public class ExerciseLevelBaseRepositoryTest extends CRUDRepositoryBaseTest<Exer
 		ArrayList<ExerciseLevelBaseEntity> elementsSamplesByExerciseBase2 = new ArrayList<ExerciseLevelBaseEntity>();
 		
 		for (int i = 0; i < 5; ++i) {
-			ExerciseLevelBaseEntity exerciseLevelBaseEntity1 = new ExerciseLevelBaseEntity(null, this.levelBaseEntity1, this.exerciseBaseEntity1);
-			ExerciseLevelBaseEntity exerciseLevelBaseEntity2 = new ExerciseLevelBaseEntity(null, this.levelBaseEntity2, this.exerciseBaseEntity2);
+			ExerciseLevelBaseEntity exerciseLevelBaseEntity1 = new ExerciseLevelBaseEntity(null, this.levelBaseEntity1, this.exerciseBaseEntity1, 10L);
+			ExerciseLevelBaseEntity exerciseLevelBaseEntity2 = new ExerciseLevelBaseEntity(null, this.levelBaseEntity2, this.exerciseBaseEntity2, null);
 			
 			elementsSamples.add(exerciseLevelBaseEntity1);
 			elementsSamples.add(exerciseLevelBaseEntity2);
@@ -75,6 +76,8 @@ public class ExerciseLevelBaseRepositoryTest extends CRUDRepositoryBaseTest<Exer
 	@Override
 	public void assertValues(ExerciseLevelBaseEntity obj1, ExerciseLevelBaseEntity obj2) {
 		super.assertNotEqualsValuesBase(obj1, obj2);
+		
+		assertEquals(obj1.getVelocity(), obj2.getVelocity());
 		
 		this.levelBaseRepositoryTest.assertEqualsValuesBase(obj1.getLevelBaseEntity(), obj2.getLevelBaseEntity());
 		this.exerciseBaseRepositoryTest.assertEqualsValuesBase(obj1.getExerciseBaseEntity(), obj2.getExerciseBaseEntity());
