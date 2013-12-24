@@ -36,13 +36,13 @@ public class BookRepositoryTest extends CRUDRepositoryBaseTest<BookEntity> {
 		
 		
 		for (int i = 0; i < 5; ++i) {
-			BookEntity bookEntityAuthor1 = new BookEntity(null, "BookName" + i, authorEntity1);
-			BookEntity bookEntityAuthor2 = new BookEntity(null, "BookName" + i + 1, authorEntity2);
+			BookEntity bookEntity1 = new BookEntity(null, "BookName" + i, authorEntity1);
+			BookEntity bookEntity2 = new BookEntity(null, "BookName" + i + 1, authorEntity2);
 			
-			elementsSamples.add(bookEntityAuthor1);
-			elementsSamples.add(bookEntityAuthor2);
+			elementsSamples.add(bookEntity1);
+			elementsSamples.add(bookEntity2);
 			
-			elementsSamplesByAuthor2.add(bookEntityAuthor2);
+			elementsSamplesByAuthor2.add(bookEntity2);
 		}
 		
 		this.addSamples(elementsSamples);

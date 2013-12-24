@@ -16,6 +16,7 @@
         <class>ar.com.masch.exercise.learning.entity.base.ExerciseLevelBaseEntity</class>
         
 		<class>ar.com.masch.exercise.learning.entity.book.BookEntity</class>
+		<class>ar.com.masch.exercise.learning.entity.book.ChapterBookEntity</class>
 		
         <properties>
             <property name="hibernate.show_sql" value="true" />

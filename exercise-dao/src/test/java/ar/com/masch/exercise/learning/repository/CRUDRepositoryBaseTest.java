@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 import org.apache.log4j.Logger;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import static org.junit.Assert.assertEquals;
@@ -31,6 +32,9 @@ public abstract class CRUDRepositoryBaseTest<T> {
 	public abstract void fillElementsSamples();
 	public abstract void searchElements();
 	public abstract void assertValues(T obj1, T obj2);
+	@Test
+	public abstract void doTest();
+	
 	
 	public List<T> getElementsSamples() {
 		return this.elementsSamples.get(0);
