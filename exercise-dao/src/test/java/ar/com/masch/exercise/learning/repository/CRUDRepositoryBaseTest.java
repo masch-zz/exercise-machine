@@ -2,9 +2,10 @@ package ar.com.masch.exercise.learning.repository;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Set;
 
-import org.apache.log4j.Logger;
 import org.junit.Test;
+import org.apache.log4j.Logger;
 import org.junit.runner.RunWith;
 
 import static org.junit.Assert.assertEquals;
@@ -124,6 +125,13 @@ public abstract class CRUDRepositoryBaseTest<T> {
 
 	}	
 	
+	public void assertNotNullBase(Set<T> obj1, Set<T> obj2) {
+		
+		assertNotNull(obj1);
+		assertNotNull(obj2);
+
+	}	
+	
 	public void assertNotEqualsValuesBase(T obj1, T obj2) {
 		
 		assertNotNullBase(obj1, obj2);
@@ -139,6 +147,13 @@ public abstract class CRUDRepositoryBaseTest<T> {
 	}
 	
 	public void assertEqualsValuesBase(List<T> objList1, List<T> objList2) {
+		
+		assertNotNullBase(objList1, objList2);
+		assertEquals(objList1, objList2);
+
+	}
+	
+	public void assertEqualsValuesBase(Set<T> objList1, Set<T> objList2) {
 		
 		assertNotNullBase(objList1, objList2);
 		assertEquals(objList1, objList2);

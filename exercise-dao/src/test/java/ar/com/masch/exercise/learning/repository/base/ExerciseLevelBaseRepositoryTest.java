@@ -41,8 +41,8 @@ public class ExerciseLevelBaseRepositoryTest extends CRUDRepositoryBaseTest<Exer
 		ArrayList<ExerciseLevelBaseEntity> elementsSamplesByLevelBase1 = new ArrayList<ExerciseLevelBaseEntity>();
 		ArrayList<ExerciseLevelBaseEntity> elementsSamplesByExerciseBase2 = new ArrayList<ExerciseLevelBaseEntity>();
 		
-		for (int i = 0; i < 5; ++i) {
-			ExerciseLevelBaseEntity exerciseLevelBaseEntity1 = new ExerciseLevelBaseEntity(null, this.levelBaseEntity1, this.exerciseBaseEntity1, 10L);
+		for (Long i = 0L; i < 5; ++i) {
+			ExerciseLevelBaseEntity exerciseLevelBaseEntity1 = new ExerciseLevelBaseEntity(null, this.levelBaseEntity1, this.exerciseBaseEntity1, i);
 			ExerciseLevelBaseEntity exerciseLevelBaseEntity2 = new ExerciseLevelBaseEntity(null, this.levelBaseEntity2, this.exerciseBaseEntity2, null);
 			
 			elementsSamples.add(exerciseLevelBaseEntity1);

@@ -1,11 +1,17 @@
 package ar.com.masch.exercise.learning.entity.book;
 
+import java.util.Set;
+
 import javax.persistence.Table;
 import javax.persistence.Entity;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
 import javax.persistence.JoinColumn;
+import javax.persistence.CascadeType;
 
 import ar.com.masch.exercise.learning.entity.base.NameBaseEntity;
+import ar.com.masch.exercise.learning.entity.base.ExerciseLevelBaseEntity;
 
 @Table(name = "chapter_book")
 @Entity(name = "chapter_book")
@@ -15,9 +21,16 @@ public class ChapterBookEntity extends NameBaseEntity {
 	@JoinColumn(name = "BOOK_ID", nullable = false)
 	private BookEntity bookEntity;
 	
-	public ChapterBookEntity(Long id, String name, BookEntity bookEntity) {
+	@ManyToMany(/*fetch = FetchType.LAZY,*/ cascade = CascadeType.ALL)
+	@JoinTable(name = "exerc_lev_chap_book"/*, catalog = "mkyongdb"*/, 
+	           joinColumns = { @JoinColumn(name = "BOOK_ID", nullable = false, updatable = false) }, 
+			   inverseJoinColumns = { @JoinColumn(name = "EXERCISE_LEVEL_BASE_ID") })
+	private Set<ExerciseLevelBaseEntity> exerciseLevelBaseEntityList;
+	
+	public ChapterBookEntity(Long id, String name, BookEntity bookEntity, Set<ExerciseLevelBaseEntity> ExerciseLevelBaseEntityList) {
 		super(id, name);
 		this.bookEntity = bookEntity;
+		this.exerciseLevelBaseEntityList = ExerciseLevelBaseEntityList;
 	}
 	
 	public BookEntity getBookEntity() {
@@ -28,19 +41,12 @@ public class ChapterBookEntity extends NameBaseEntity {
 		this.bookEntity = bookEntity;
 	}
 	
-	
-	/*private List<ExerciseBaseEntity> exercisesBookList;
-
-	public ChapterBookEntity(Long id, String name) {
-		super(id, name);
-	}	
-
-	public List<ExerciseBaseEntity> getExercisesBookList() {
-		return exercisesBookList;
+	public Set<ExerciseLevelBaseEntity> getExerciseLevelBaseEntityList() {
+		return exerciseLevelBaseEntityList;
 	}
 	
-	public void setExercisesBookList(List<ExerciseBaseEntity> exercisesBookList) {
-		this.exercisesBookList = exercisesBookList;
-	}*/
+	public void setExerciseLevelBaseEntityList(Set<ExerciseLevelBaseEntity> exerciseLevelBaseEntityList) {
+		this.exerciseLevelBaseEntityList = exerciseLevelBaseEntityList;
+	}
 
 }
