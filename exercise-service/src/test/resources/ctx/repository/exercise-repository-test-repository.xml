@@ -18,7 +18,8 @@
 		  p:entityManagerFactory-ref="entityManagerFactory" />
 
 	<jdbc:embedded-database id="dataSource" type="HSQL">
-		<jdbc:script location="classpath:/ctx/schema/exercise.sql" encoding="UTF-8" />
+		<jdbc:script location="classpath:/ctx/schema/exercise-ddl.sql" encoding="UTF-8" />
+		<jdbc:script location="classpath:/ctx/schema/exercise-dml.sql" encoding="UTF-8" />
 	</jdbc:embedded-database>
 
 	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
