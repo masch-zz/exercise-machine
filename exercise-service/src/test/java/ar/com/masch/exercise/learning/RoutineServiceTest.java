@@ -8,8 +8,8 @@ import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import ar.com.masch.exercise.learning.dto.RoutineDTO;
 import ar.com.masch.exercise.learning.service.RoutineService;
+import ar.com.masch.exercise.learning.dto.exercise.RoutineDTO;
 import ar.com.masch.exercise.learning.dto.exercise.RoutineExerciseDTO;
 
 @RunWith(SpringJUnit4ClassRunner.class)

@@ -1,8 +1,6 @@
-package ar.com.masch.exercise.learning.dto;
+package ar.com.masch.exercise.learning.dto.exercise;
 
 import java.util.List;
-
-import ar.com.masch.exercise.learning.dto.exercise.RoutineExerciseDTO;
 
 public class RoutineDTO {
 

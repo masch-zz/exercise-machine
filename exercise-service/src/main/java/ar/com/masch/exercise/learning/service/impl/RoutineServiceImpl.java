@@ -5,12 +5,12 @@ import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import ar.com.masch.exercise.learning.dto.RoutineDTO;
 import ar.com.masch.exercise.learning.service.RoutineService;
 import ar.com.masch.exercise.learning.factory.RoutineDTOFactory;
 import ar.com.masch.exercise.learning.repository.AuthorRepository;
 import ar.com.masch.exercise.learning.entity.book.ChapterBookEntity;
 import ar.com.masch.exercise.learning.entity.base.RoutineBaseEntity;
+import ar.com.masch.exercise.learning.dto.exercise.RoutineDTO;
 import ar.com.masch.exercise.learning.dto.exercise.RoutineExerciseDTO;
 import ar.com.masch.exercise.learning.repository.RoutineBaseRepository;
 import ar.com.masch.exercise.learning.factory.RoutineExerciseDTOFactory;

@@ -8,7 +8,7 @@
                            http://www.springframework.org/schema/util
                            http://www.springframework.org/schema/util/spring-util.xsd">
  
-    <bean id="routine1y1" class="ar.com.masch.exercise.learning.dto.RoutineDTO">
+    <bean id="routine1y1" class="ar.com.masch.exercise.learning.dto.exercise.RoutineDTO">
         <property name="name" value="1 y 1" />
         <property name="routineExerciseDTOList">
             <util:list>
@@ -63,7 +63,7 @@
  
  
  
-<!--  	<bean id="plWT1" class="ar.com.masch.exercise.learning.dto.RoutineDTO"> -->
+<!--  	<bean id="plWT1" class="ar.com.masch.exercise.learning.dto.exercise.RoutineDTO"> -->
 <!--  		<property name="name" value="plWT1"/> -->
 <!--  		<property name="exerciseDTOList"> -->
 <!-- 			<util:list> -->
@@ -74,7 +74,7 @@
 <!--  		</property> -->
 <!--  	</bean> -->
  
-<!--  	<bean id="plWT2" class="ar.com.masch.exercise.learning.dto.RoutineDTO"> -->
+<!--  	<bean id="plWT2" class="ar.com.masch.exercise.learning.dto.exercise.RoutineDTO"> -->
 <!--  		<property name="name" value="plWT2"/> -->
 <!--  		<property name="exerciseDTOList"> -->
 <!-- 			<util:list> -->
