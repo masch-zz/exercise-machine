@@ -66,7 +66,7 @@ public class RoutineServiceImpl implements RoutineService {
 		RoutineBaseEntity routineBaseEntity = this.routineBaseRepository.findByName(name);
 		if (routineBaseEntity != null) {
 
-			List<RoutineExerciseBaseEntity> routineExerciseBaseEntities = this.routineExeciseBaseRepository.findByRoutineBaseEntity(routineBaseEntity);
+			List<RoutineExerciseBaseEntity> routineExerciseBaseEntities = this.routineExeciseBaseRepository.findByRoutineBaseEntityOrderByPositionOrderAsc(routineBaseEntity);
 			result = getRoutineDTO(routineBaseEntity, routineExerciseBaseEntities);
 			
 		}

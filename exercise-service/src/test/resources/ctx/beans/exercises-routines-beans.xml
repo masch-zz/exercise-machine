@@ -20,23 +20,23 @@
             </util:list>    
         </property>
     </bean>
-
+    
     <bean id="wtRE1" class="ar.com.masch.exercise.learning.dto.exercise.RoutineExerciseDTO">
         <property name="index" value="1" />
-        <property name="name" value="1E" />
-        <property name="level" value="NIVEL 2" />
-        <property name="chapter" value="Rebound" />
-        <property name="velocity"><null/></property>
-    </bean>
-    
-    <bean id="wtRE2" class="ar.com.masch.exercise.learning.dto.exercise.RoutineExerciseDTO">
-        <property name="index" value="2" />
         <property name="name" value="1E" />
         <property name="level" value="NIVEL 3" />
         <property name="chapter" value="Rebound" />
         <property name="velocity"><null/></property>
     </bean>
  
+    <bean id="wtRE2" class="ar.com.masch.exercise.learning.dto.exercise.RoutineExerciseDTO">
+        <property name="index" value="2" />
+        <property name="name" value="1E" />
+        <property name="level" value="NIVEL 2" />
+        <property name="chapter" value="Rebound" />
+        <property name="velocity"><null/></property>
+    </bean>
+
      <bean id="wtRE3" class="ar.com.masch.exercise.learning.dto.exercise.RoutineExerciseDTO">
         <property name="index" value="3" />
         <property name="name" value="2E" />
@@ -44,7 +44,7 @@
         <property name="chapter" value="All Strokes" />
         <property name="velocity"><null/></property>
     </bean>
- 
+
     <bean id="wtRE4" class="ar.com.masch.exercise.learning.dto.exercise.RoutineExerciseDTO">
         <property name="index" value="4" />
         <property name="name" value="2E" />
@@ -52,7 +52,7 @@
         <property name="chapter" value="Rebound" />
         <property name="velocity"><null/></property>
     </bean>
- 
+
     <bean id="wtRE5" class="ar.com.masch.exercise.learning.dto.exercise.RoutineExerciseDTO">
         <property name="index" value="5" />
         <property name="name" value="2E" />
@@ -60,6 +60,8 @@
         <property name="chapter" value="Rebound" />
         <property name="velocity"><null/></property>
     </bean>
+ 
+ 
  
 <!--  	<bean id="plWT1" class="ar.com.masch.exercise.learning.dto.RoutineDTO"> -->
 <!--  		<property name="name" value="plWT1"/> -->

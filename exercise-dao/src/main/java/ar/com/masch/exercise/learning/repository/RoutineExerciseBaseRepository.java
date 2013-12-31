@@ -7,6 +7,6 @@ import ar.com.masch.exercise.learning.entity.base.RoutineExerciseBaseEntity;
 
 public interface RoutineExerciseBaseRepository extends BaseRepository<RoutineExerciseBaseEntity, Long>{
 
-	public List<RoutineExerciseBaseEntity> findByRoutineBaseEntity(RoutineBaseEntity routineBaseEntity);
+	public List<RoutineExerciseBaseEntity> findByRoutineBaseEntityOrderByPositionOrderAsc(RoutineBaseEntity routineBaseEntity);
 	
 }

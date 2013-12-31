@@ -57,7 +57,7 @@ public class RoutineExerciseBaseRespositoryTest extends CRUDRepositoryBaseTest<R
 		
 		//Find By routineBaseEntity1
 		ArrayList<RoutineExerciseBaseEntity> elementsSearchedByRoutineBaseEntity1 = (ArrayList<RoutineExerciseBaseEntity>) 
-								             this.routineExerciseBaseRepository.findByRoutineBaseEntity(this.routineBaseEntity1);
+								             this.routineExerciseBaseRepository.findByRoutineBaseEntityOrderByPositionOrderAsc(this.routineBaseEntity1);
 		this.addSearched(elementsSearchedByRoutineBaseEntity1);
 		
 	}

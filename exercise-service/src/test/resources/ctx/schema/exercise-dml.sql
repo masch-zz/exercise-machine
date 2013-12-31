@@ -72,10 +72,10 @@ INSERT INTO ROUTINE_BASE (ID, NAME) VALUES
 /************************************************************************/
 
 INSERT INTO ROUTINE_BASE_EXERCISE_BASE (ID, ROUTINE_BASE_ID, EXERCISE_LEVEL_BASE_ID, POSITION_ORDER) VALUES
-            (1, 1, 2, 1),
-            (2, 1, 3, 2),
-            (3, 1, 6, 3),
-            (4, 1, 7, 4),
+            (1, 1, 2, 2),
+            (2, 1, 3, 1),
+            (3, 1, 7, 4),
+            (4, 1, 6, 3),
             (5, 1, 8, 5),
             (6, 2, 9, 6),
             (7, 2, 11, 7),
