@@ -3,9 +3,7 @@ package ar.com.masch.exercise.learning.repository.book;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-import java.util.Set;
 import java.util.List;
-import java.util.HashSet;
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import ar.com.masch.exercise.learning.entity.book.BookEntity;
 import ar.com.masch.exercise.learning.entity.book.ChapterBookEntity;
 import ar.com.masch.exercise.learning.repository.CRUDRepositoryBaseTest;
-import ar.com.masch.exercise.learning.entity.base.ExerciseLevelBaseEntity;
 import ar.com.masch.exercise.learning.repository.base.ExerciseLevelBaseRepositoryTest;
 
 public class ChapterBookRepositoryTest extends CRUDRepositoryBaseTest<ChapterBookEntity> {
@@ -38,11 +35,11 @@ public class ChapterBookRepositoryTest extends CRUDRepositoryBaseTest<ChapterBoo
 		this.bookEntity2 = this.bookRepositoryTest.getElementsCreated().get(1);
 		
 		ArrayList<ChapterBookEntity> elementsSamplesByBook2 = new ArrayList<ChapterBookEntity>();
-		Set<ExerciseLevelBaseEntity> exerciseLevelBaseEntitySet = new HashSet<ExerciseLevelBaseEntity>(this.exerciseLevelBaseRepositoryTest.getElementsCreated());		
+		//Set<ExerciseLevelBaseEntity> exerciseLevelBaseEntitySet = new HashSet<ExerciseLevelBaseEntity>(this.exerciseLevelBaseRepositoryTest.getElementsCreated());		
 		
 		for (int i = 0; i < 5; ++i) {
-			ChapterBookEntity chapterBookEntity1 = new ChapterBookEntity(null, "ChapterName" + i, this.bookEntity1, exerciseLevelBaseEntitySet);
-			ChapterBookEntity chapterBookEntity2 = new ChapterBookEntity(null, "ChapterName" + i + 1, this.bookEntity2, exerciseLevelBaseEntitySet);
+			ChapterBookEntity chapterBookEntity1 = new ChapterBookEntity(null, this.bookEntity1, i, "ChapterName" + i/*, exerciseLevelBaseEntitySet*/);
+			ChapterBookEntity chapterBookEntity2 = new ChapterBookEntity(null, this.bookEntity2, i + 1, "ChapterName" + i + 1/*, exerciseLevelBaseEntitySet*/);
 			
 			elementsSamples.add(chapterBookEntity1);
 			elementsSamples.add(chapterBookEntity2);
@@ -80,9 +77,11 @@ public class ChapterBookRepositoryTest extends CRUDRepositoryBaseTest<ChapterBoo
 		
 		//assertEquals(obj1.getId(), obj2.getId());
 		assertEquals(obj1.getName(), obj2.getName());
+		assertEquals(obj1.getNumber(), obj2.getNumber());
 
+		
 		this.bookRepositoryTest.assertEqualsValuesBase(obj1.getBookEntity(), obj2.getBookEntity());
-		this.exerciseLevelBaseRepositoryTest.assertEqualsValuesBase(obj1.getExerciseLevelBaseEntityList(), obj2.getExerciseLevelBaseEntityList());
+//		this.exerciseLevelBaseRepositoryTest.assertEqualsValuesBase(obj1.getExerciseLevelBaseEntityList(), obj2.getExerciseLevelBaseEntityList());
 		
 	}
 	

@@ -1,8 +1,6 @@
 package ar.com.masch.exercise.learning.repository.base;
 
 import java.util.ArrayList;
-
-import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
@@ -67,7 +65,7 @@ public class AuthorRepositoryTest extends CRUDRepositoryBaseTest<AuthorEntity> {
 		
 	}
 	
-	@Test
+	//@Test
 	public void doTest() {
 
 		super.doTest(this.authorRepository);

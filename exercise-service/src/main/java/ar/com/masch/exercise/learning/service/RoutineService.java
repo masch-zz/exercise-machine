@@ -4,6 +4,6 @@ import ar.com.masch.exercise.learning.dto.RoutineDTO;
 
 public interface RoutineService {
 	
-	RoutineDTO getRoutine(String name);
+	public RoutineDTO getRoutine(String name);
 
 }

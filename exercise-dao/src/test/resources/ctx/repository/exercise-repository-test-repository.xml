@@ -23,7 +23,7 @@
 
 	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
 		  p:dataSource-ref="dataSource"
-		  p:packagesToScan="ar.com.masch.exercise.learning.entity.base"
+		  p:packagesToScan="ar.com.masch.exercise.learning.entity"
 		  p:persistenceUnitName="hsql">
 		<property name="jpaVendorAdapter">
 			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />

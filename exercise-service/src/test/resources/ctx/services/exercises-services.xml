@@ -9,7 +9,7 @@
                         http://www.springframework.org/schema/context/spring-context.xsd">
 
 	<bean id="routineService" class="ar.com.masch.exercise.learning.service.impl.RoutineServiceImpl">
-		<property name="routineDTOMapTest" ref="routineDTOMapTest" />
+<!-- 		<property name="routineDTOMapTest" ref="routineDTOMapTest" /> -->
 <!-- 		<property name="routineBaseRepository" ref="routineBaseRepositoryImpl" /> -->
 	</bean> 
 

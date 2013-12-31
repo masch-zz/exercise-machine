@@ -2,7 +2,6 @@ package ar.com.masch.exercise.learning.repository.base;
 
 import java.util.ArrayList;
 
-import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
@@ -22,8 +21,8 @@ public class ExerciseBaseRepositoryTest extends CRUDRepositoryBaseTest<ExerciseB
 		ArrayList<ExerciseBaseEntity> elementsSamples = new ArrayList<ExerciseBaseEntity>();
 		
 		for (int i = 0; i < 5; ++i) {
-			ExerciseBaseEntity exerciseBaseEntity1 = new ExerciseBaseEntity(null, "exerciseBaseName" + i/*, this.levelBaseEntity1*/);
-			ExerciseBaseEntity exerciseBaseEntity2 = new ExerciseBaseEntity(null, "exerciseBaseName" + i+1/*, this.levelBaseEntity2*/);
+			ExerciseBaseEntity exerciseBaseEntity1 = new ExerciseBaseEntity(null, i, "exerciseBaseName" + i/*, this.levelBaseEntity1*/);
+			ExerciseBaseEntity exerciseBaseEntity2 = new ExerciseBaseEntity(null, i+1, "exerciseBaseName" + i+1/*, this.levelBaseEntity2*/);
 			
 			elementsSamples.add(exerciseBaseEntity1);
 			elementsSamples.add(exerciseBaseEntity2);
@@ -62,15 +61,15 @@ public class ExerciseBaseRepositoryTest extends CRUDRepositoryBaseTest<ExerciseB
 		
 		//assertEquals(obj1.getId(), obj2.getId());
 		assertEquals(obj1.getName(), obj2.getName());
+		assertEquals(obj1.getPositionOrder(), obj2.getPositionOrder());
 		
 		//this.levelBaseRepositoryTest.assertEqualsValuesBase(obj1.getLevelBaseEntity(), obj2.getLevelBaseEntity());
 		
 	}
 
-	@Test
+	//@Test
 	public void doTest() {
 
-		//this.levelBaseRepositoryTest.doTest();
 		super.doTest(this.exerciseBaseRepository);
 
 	}	

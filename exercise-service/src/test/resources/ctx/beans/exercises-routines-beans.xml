@@ -8,35 +8,88 @@
                            http://www.springframework.org/schema/util
                            http://www.springframework.org/schema/util/spring-util.xsd">
  
- 	<bean id="plWT1" class="ar.com.masch.exercise.learning.dto.RoutineDTO">
- 		<property name="name" value="plWT1"/>
- 		<property name="exerciseDTOList">
-			<util:list>
-				<ref bean="wtExercise151"/>
-				<ref bean="wtExercise141"/>
-				<ref bean="wtExercise314"/>
-			</util:list> 	
- 		</property>
- 	</bean>
+    <bean id="routine1y1" class="ar.com.masch.exercise.learning.dto.RoutineDTO">
+        <property name="name" value="1 y 1" />
+        <property name="routineExerciseDTOList">
+            <util:list>
+                <ref bean="wtRE1"/>
+                <ref bean="wtRE2"/>
+                <ref bean="wtRE3"/>
+                <ref bean="wtRE4"/>
+                <ref bean="wtRE5"/>
+            </util:list>    
+        </property>
+    </bean>
+
+    <bean id="wtRE1" class="ar.com.masch.exercise.learning.dto.exercise.RoutineExerciseDTO">
+        <property name="index" value="1" />
+        <property name="name" value="1E" />
+        <property name="level" value="NIVEL 2" />
+        <property name="chapter" value="Rebound" />
+        <property name="velocity"><null/></property>
+    </bean>
+    
+    <bean id="wtRE2" class="ar.com.masch.exercise.learning.dto.exercise.RoutineExerciseDTO">
+        <property name="index" value="2" />
+        <property name="name" value="1E" />
+        <property name="level" value="NIVEL 3" />
+        <property name="chapter" value="Rebound" />
+        <property name="velocity"><null/></property>
+    </bean>
  
- 	<bean id="plWT2" class="ar.com.masch.exercise.learning.dto.RoutineDTO">
- 		<property name="name" value="plWT2"/>
- 		<property name="exerciseDTOList">
-			<util:list>
-				<ref bean="wtExercise151"/>
-				<ref bean="wtExercise141"/>
-			</util:list> 	
- 		</property>
- 	</bean>
+     <bean id="wtRE3" class="ar.com.masch.exercise.learning.dto.exercise.RoutineExerciseDTO">
+        <property name="index" value="3" />
+        <property name="name" value="2E" />
+        <property name="level" value="NIVEL 1" />
+        <property name="chapter" value="All Strokes" />
+        <property name="velocity"><null/></property>
+    </bean>
+ 
+    <bean id="wtRE4" class="ar.com.masch.exercise.learning.dto.exercise.RoutineExerciseDTO">
+        <property name="index" value="4" />
+        <property name="name" value="2E" />
+        <property name="level" value="NIVEL 2" />
+        <property name="chapter" value="Rebound" />
+        <property name="velocity"><null/></property>
+    </bean>
+ 
+    <bean id="wtRE5" class="ar.com.masch.exercise.learning.dto.exercise.RoutineExerciseDTO">
+        <property name="index" value="5" />
+        <property name="name" value="2E" />
+        <property name="level" value="NIVEL 3" />
+        <property name="chapter" value="Rebound" />
+        <property name="velocity"><null/></property>
+    </bean>
+ 
+<!--  	<bean id="plWT1" class="ar.com.masch.exercise.learning.dto.RoutineDTO"> -->
+<!--  		<property name="name" value="plWT1"/> -->
+<!--  		<property name="exerciseDTOList"> -->
+<!-- 			<util:list> -->
+<!-- 				<ref bean="wtExercise151"/> -->
+<!-- 				<ref bean="wtExercise141"/> -->
+<!-- 				<ref bean="wtExercise314"/> -->
+<!-- 			</util:list> 	 -->
+<!--  		</property> -->
+<!--  	</bean> -->
+ 
+<!--  	<bean id="plWT2" class="ar.com.masch.exercise.learning.dto.RoutineDTO"> -->
+<!--  		<property name="name" value="plWT2"/> -->
+<!--  		<property name="exerciseDTOList"> -->
+<!-- 			<util:list> -->
+<!-- 				<ref bean="wtExercise151"/> -->
+<!-- 				<ref bean="wtExercise141"/> -->
+<!-- 			</util:list> 	 -->
+<!--  		</property> -->
+<!--  	</bean> -->
 
 
-	<util:map id="routineDTOMapTest">
-	    <entry key="plWT1">
-	    	<ref bean="plWT1"/>
-	    </entry>
-	    <entry key="plWT2">
-	    	<ref bean="plWT2"/>
-	    </entry>	    
-	</util:map> 
+<!-- 	<util:map id="routineDTOMapTest"> -->
+<!-- 	    <entry key="plWT1"> -->
+<!-- 	    	<ref bean="plWT1"/> -->
+<!-- 	    </entry> -->
+<!-- 	    <entry key="plWT2"> -->
+<!-- 	    	<ref bean="plWT2"/> -->
+<!-- 	    </entry>	     -->
+<!-- 	</util:map>  -->
 		
 </beans>

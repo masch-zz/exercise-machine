@@ -10,27 +10,49 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import ar.com.masch.exercise.learning.dto.RoutineDTO;
 import ar.com.masch.exercise.learning.service.RoutineService;
+import ar.com.masch.exercise.learning.dto.exercise.RoutineExerciseDTO;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("/ctx/exercises-application-context.xml")
 public class RoutineServiceTest {
 	
 	@Resource
-	RoutineService routineService;
+	private RoutineService routineService;
 	
-	private void assertRoutineDTO(String name, int size) {
+	@Resource
+	private RoutineDTO routine1y1;
+	
+	private void assertRoutineExerciseDTO(RoutineExerciseDTO source, RoutineExerciseDTO destiny) {
 		
-		RoutineDTO routineDTO = this.routineService.getRoutine(name);
+		Assert.assertNotNull(source);
+		Assert.assertNotNull(destiny);
+		Assert.assertEquals(source.getName(), destiny.getName());
+		Assert.assertEquals(source.getLevel(), destiny.getLevel());
+		Assert.assertEquals(source.getIndex(), destiny.getIndex());
+		Assert.assertEquals(source.getChapter(), destiny.getChapter());
+		Assert.assertEquals(source.getVelocity(), destiny.getVelocity());		
 		
-		Assert.assertEquals(name, routineDTO.getName());
-		Assert.assertEquals(size, routineDTO.getExerciseDTOList().size());		
+	}
+	
+	private void assertRoutineDTO(RoutineDTO routineDTO) {
+		
+		RoutineDTO routineSearchedDTO = this.routineService.getRoutine(routineDTO.getName());
+		
+		Assert.assertNotNull(routineSearchedDTO);
+		Assert.assertEquals(routineSearchedDTO.getName(), routineDTO.getName());
+		Assert.assertEquals(routineSearchedDTO.getRoutineExerciseDTOList().size(), routineDTO.getRoutineExerciseDTOList().size());		
+		
+		for (int i = 0 ; i < routineDTO.getRoutineExerciseDTOList().size(); i++) {
+			assertRoutineExerciseDTO(routineDTO.getRoutineExerciseDTOList().get(i),
+									 routineSearchedDTO.getRoutineExerciseDTOList().get(i));
+		}
+		
 	}
 	
 	@Test
 	public void test1() {
 		
-		assertRoutineDTO("plWT1", 3);
-		assertRoutineDTO("plWT2", 2);
+		assertRoutineDTO(routine1y1);
 
 	}
 	

@@ -1,13 +1,13 @@
 package ar.com.masch.exercise.learning.dto;
-//Test
+
 import java.util.List;
 
-import ar.com.masch.exercise.learning.dto.exercise.ExerciseDTO;
+import ar.com.masch.exercise.learning.dto.exercise.RoutineExerciseDTO;
 
 public class RoutineDTO {
 
 	private String name;
-	private List<ExerciseDTO> exerciseDTOList;
+	private List<RoutineExerciseDTO> routineExerciseDTOList;
 
 	public String getName() {
 		return name;
@@ -17,11 +17,11 @@ public class RoutineDTO {
 		this.name = name;
 	}
 	
-	public List<ExerciseDTO> getExerciseDTOList() {
-		return exerciseDTOList;
+	public List<RoutineExerciseDTO> getRoutineExerciseDTOList() {
+		return this.routineExerciseDTOList;
 	}
 	
-	public void setExerciseDTOList(List<ExerciseDTO> exerciseDTOList) {
-		this.exerciseDTOList = exerciseDTOList;
+	public void setRoutineExerciseDTOList(List<RoutineExerciseDTO> routineExerciseDTOList) {
+		this.routineExerciseDTOList = routineExerciseDTOList;
 	}
 }

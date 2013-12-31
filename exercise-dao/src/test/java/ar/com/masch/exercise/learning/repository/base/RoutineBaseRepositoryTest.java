@@ -1,17 +1,13 @@
 package ar.com.masch.exercise.learning.repository.base;
 
-import java.util.Set;
-import java.util.HashSet;
 import java.util.ArrayList;
 
-import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
 import ar.com.masch.exercise.learning.entity.base.RoutineBaseEntity;
-import ar.com.masch.exercise.learning.entity.base.ExerciseBaseEntity;
 import ar.com.masch.exercise.learning.repository.RoutineBaseRepository;
 import ar.com.masch.exercise.learning.repository.CRUDRepositoryBaseTest;
 
@@ -21,17 +17,15 @@ public class RoutineBaseRepositoryTest extends CRUDRepositoryBaseTest<RoutineBas
 	private RoutineBaseRepository routineBaseRepository;
 	
 	@Autowired
-	private ExerciseBaseRepositoryTest exerciseBaseRepositoryTest;
+	private ExerciseLevelBaseRepositoryTest exerciseLevelBaseRepositoryTest;
 	
 	@Override
 	public void fillElementsSamples() {
 
 		ArrayList<RoutineBaseEntity> elementsSamples = new ArrayList<RoutineBaseEntity>();
 		
-		Set<ExerciseBaseEntity> exerciseBaseEntitySet = new HashSet<ExerciseBaseEntity>(this.exerciseBaseRepositoryTest.getElementsCreated());
-
 		for (int i = 0; i < 5; ++i) {
-			elementsSamples.add(new RoutineBaseEntity(null, "routineBaseName" + i, exerciseBaseEntitySet));	
+			elementsSamples.add(new RoutineBaseEntity(null, "routineBaseName" + i));	
 		}
 		
 		this.addSamples(elementsSamples);
@@ -60,15 +54,13 @@ public class RoutineBaseRepositoryTest extends CRUDRepositoryBaseTest<RoutineBas
 		super.assertNotEqualsValuesBase(obj1, obj2);
 		
 		assertEquals(obj1.getName(), obj2.getName());
-		
-		this.exerciseBaseRepositoryTest.assertEqualsValuesBase(obj1.getExercisesBaseEntitiesList(), obj2.getExercisesBaseEntitiesList());
 
 	}
 
-	@Test
+	//@Test
 	public void doTest() {
 
-		this.exerciseBaseRepositoryTest.doTest();
+		this.exerciseLevelBaseRepositoryTest.doTest();
 		super.doTest(this.routineBaseRepository);
 
 	}

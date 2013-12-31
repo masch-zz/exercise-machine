@@ -32,5 +32,12 @@ public class AuthorEntity extends PersonBaseEntity {
 //		return super.equals(obj);
 		   return EqualsBuilder.reflectionEquals(this, obj);		
 	}
+	
+	@Override
+	public String toString() {
+		String result = "\nAuthor-> " + super.toString();
+		
+		return result;
+	}	
 
 }
