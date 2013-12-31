@@ -4,7 +4,7 @@ import ar.com.masch.exercise.learning.dto.exercise.LevelExerciseDTO;
 
 public class LevelExerciseDTOFactory {
 
-	LevelExerciseDTO create(String name, String index) {
+	public LevelExerciseDTO create(String name, String index) {
 		LevelExerciseDTO levelExerciseDTO = new LevelExerciseDTO();
 		
 		levelExerciseDTO.setName(name);

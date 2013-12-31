@@ -2,8 +2,8 @@ package ar.com.masch.exercise.learning.entity.book;
 
 import javax.persistence.Table;
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.JoinColumn;
 
 import ar.com.masch.exercise.learning.entity.base.AuthorEntity;
 import ar.com.masch.exercise.learning.entity.base.NameBaseEntity;
@@ -15,8 +15,11 @@ public class BookEntity extends NameBaseEntity {
 	@ManyToOne(/*fetch = FetchType.LAZY*/)
 	@JoinColumn(name = "AUTHOR_ID", nullable = false)
 	private AuthorEntity authorEntity;
-	//private List<ChapterBookEntity> chaptersBookList;
-
+	
+	public BookEntity() {
+		super();
+	}
+	
 	public BookEntity(Long id, String name, AuthorEntity authorEntity) {
 		super(id, name);
 		this.authorEntity = authorEntity;
@@ -29,13 +32,13 @@ public class BookEntity extends NameBaseEntity {
 	public void setAuthorEntity(AuthorEntity authorEntity) {
 		this.authorEntity = authorEntity;
 	}
-
-	/*public List<ChapterBookEntity> getChaptersBookList() {
-		return chaptersBookList;
-	}
-
-	public void setChaptersBookList(List<ChapterBookEntity> chaptersBookList) {
-		this.chaptersBookList = chaptersBookList;
-	}*/
+	
+	@Override
+	public String toString() {
+		String result = "\nBook-> " + 
+	                    super.toString() + 
+		        		this.authorEntity.toString();
+		return result;
+	}	
 
 }

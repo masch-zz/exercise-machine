@@ -4,24 +4,14 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Set;
 
-import org.junit.Test;
 import org.apache.log4j.Logger;
-import org.junit.runner.RunWith;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNotEquals;
 
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.transaction.TransactionConfiguration;
 
-@Transactional
-@TransactionConfiguration
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("/ctx/exercise-repository-test-context.xml")
 public abstract class CRUDRepositoryBaseTest<T> {
 	
 	private static Logger logger = Logger.getLogger(CRUDRepositoryBaseTest.class);
@@ -33,9 +23,10 @@ public abstract class CRUDRepositoryBaseTest<T> {
 	public abstract void fillElementsSamples();
 	public abstract void searchElements();
 	public abstract void assertValues(T obj1, T obj2);
-	@Test
+	//@Test
 	public abstract void doTest();
 	
+	protected boolean created;
 	
 	public List<T> getElementsSamples() {
 		return this.elementsSamples.get(0);
@@ -65,39 +56,42 @@ public abstract class CRUDRepositoryBaseTest<T> {
 	
 	public void doTest(CrudRepository<T, Long> repository) {
 		
-		logger.debug("Entering doTest ...");
-
-		this.elementsCreated.clear();
-		this.elementsSearched.clear();		
-		
-		logger.debug("\tFilling elements samples - fist time ...");
-		this.fillElementsSamples();
-		
-		logger.debug("\tCreating elements samples ...");
-		this.createElments(repository);
-		
-		this.reloadSampleElementes();
-		
-		logger.debug("\tSearcing elements ...");
-		this.searchElements();
-		
-		logger.debug("\tAsserting search elements ...");
-		this.assertElementsList(this.elementsSamples, this.elementsSearched);
-		
-		logger.debug("\tAsserting created elements ...");
-		this.assertElements(this.elementsSamples.get(0), this.elementsCreated);		
-		
-		//NOTA: Lo llamo 2 veces para que se creen otros objetos ejemplos.
-		this.reloadSampleElementes();
-		
-		logger.debug("Exiting doTest ...");
+		if (!this.created) {
+			logger.debug("Entering doTest ...");
+	
+			this.elementsCreated.clear();
+			this.elementsSearched.clear();		
+			
+			logger.debug("\tFilling elements samples - fist time ...");
+			this.fillElementsSamples();
+			
+			logger.debug("\tCreating elements samples ...");
+			this.createElments(repository);
+			
+			this.reloadSampleElementes();
+			
+			logger.debug("\tSearcing elements ...");
+			this.searchElements();
+			
+			logger.debug("\tAsserting search elements ...");
+			this.assertElementsList(this.elementsSamples, this.elementsSearched);
+			
+			logger.debug("\tAsserting created elements ...");
+			this.assertElements(this.elementsSamples.get(0), this.elementsCreated);		
+			
+			//NOTA: Lo llamo 2 veces para que se creen otros objetos ejemplos.
+			this.reloadSampleElementes();
+			
+			logger.debug("Exiting doTest ...");
+			this.created = true;
+		}
 
 	}
 	
 	public void createElments(CrudRepository<T, Long> repository) {
 		
 		logger.debug("Entering create elements ...");
-				
+		
 		for (T element : this.elementsSamples.get(0)) {
 			logger.debug("\tSaving element ...");
 			T authorEntityCreated = repository.save(element);

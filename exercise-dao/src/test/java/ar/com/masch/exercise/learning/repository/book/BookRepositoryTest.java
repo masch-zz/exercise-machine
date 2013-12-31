@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import ar.com.masch.exercise.learning.entity.book.BookEntity;
@@ -82,7 +81,7 @@ public class BookRepositoryTest extends CRUDRepositoryBaseTest<BookEntity> {
 		
 	}
 	
-	@Test
+	//@Test
 	public void doTest() {
 
 		this.authorRepositoryTest.doTest();

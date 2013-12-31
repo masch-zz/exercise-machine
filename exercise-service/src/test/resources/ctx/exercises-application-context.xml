@@ -8,6 +8,9 @@
                         http://www.springframework.org/schema/context 
                         http://www.springframework.org/schema/context/spring-context.xsd">
  
+    <!-- LOGGER -->
+    <import resource="logger/exercise-repository-logger.xml"/>
+
  	<!-- BEANS -->
     <import resource="beans/exercises-beans.xml"/>
     <import resource="beans/exercises-routines-beans.xml"/>
@@ -17,7 +20,7 @@
 
     <!-- SERVICES -->
     <import resource="services/exercises-services.xml"/>
-    
+     
     <!-- FACTORIES -->
     <import resource="factories/exercises-factories.xml"/>
 

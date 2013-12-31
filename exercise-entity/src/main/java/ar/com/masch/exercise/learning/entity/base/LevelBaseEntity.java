@@ -7,6 +7,10 @@ import javax.persistence.Entity;
 @Entity(name = "level")
 public class LevelBaseEntity extends NameBaseEntity {
 	
+	public LevelBaseEntity() {
+		super();
+	}
+	
 	public LevelBaseEntity(Long id, String name) {
 		super(id, name);
 	}

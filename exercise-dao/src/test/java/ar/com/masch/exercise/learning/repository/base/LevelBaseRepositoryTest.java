@@ -2,7 +2,6 @@ package ar.com.masch.exercise.learning.repository.base;
 
 import java.util.ArrayList;
 
-import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
@@ -16,7 +15,7 @@ public class LevelBaseRepositoryTest extends CRUDRepositoryBaseTest<LevelBaseEnt
 	
 	@Autowired
 	private LevelBaseRepository levelBaseRepository;
-
+	
 	@Override
 	public void fillElementsSamples() {
 
@@ -52,9 +51,11 @@ public class LevelBaseRepositoryTest extends CRUDRepositoryBaseTest<LevelBaseEnt
 		assertEquals(obj1.getName(), obj2.getName());
 	}
 	
-	@Test
+	//@Test
 	public void doTest() {
+		
 		super.doTest(this.levelBaseRepository);
+
 	}
 
 }

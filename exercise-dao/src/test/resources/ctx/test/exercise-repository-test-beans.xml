@@ -6,12 +6,14 @@
 	   xsi:schemaLocation="http://www.springframework.org/schema/beans
                            http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean id="authorRepositoryTest" class="ar.com.masch.exercise.learning.repository.base.AuthorRepositoryTest" />
-	<bean id="levelBaseRepositoryTest" class="ar.com.masch.exercise.learning.repository.base.LevelBaseRepositoryTest" />
-	<bean id="exerciseBaseRepositoryTest" class="ar.com.masch.exercise.learning.repository.base.ExerciseBaseRepositoryTest" />
-	<bean id="exerciseLevelBaseRepositoryTest" class="ar.com.masch.exercise.learning.repository.base.ExerciseLevelBaseRepositoryTest" />
+	<bean id="authorRepositoryTest" scope="singleton" class="ar.com.masch.exercise.learning.repository.base.AuthorRepositoryTest" />
+	<bean id="levelBaseRepositoryTest" scope="singleton" class="ar.com.masch.exercise.learning.repository.base.LevelBaseRepositoryTest" />
+	<bean id="routineBaseRepositoryTest" scope="singleton" class="ar.com.masch.exercise.learning.repository.base.RoutineBaseRepositoryTest" />
+	<bean id="exerciseBaseRepositoryTest" scope="singleton" class="ar.com.masch.exercise.learning.repository.base.ExerciseBaseRepositoryTest" />
+	<bean id="exerciseLevelBaseRepositoryTest" scope="singleton" class="ar.com.masch.exercise.learning.repository.base.ExerciseLevelBaseRepositoryTest" />
+	<bean id="routineExerciseBaseRespositoryTest" scope="singleton" class="ar.com.masch.exercise.learning.repository.base.RoutineExerciseBaseRespositoryTest" />
 
-	<bean id="bookRepositoryTest" class="ar.com.masch.exercise.learning.repository.book.BookRepositoryTest" />
-
+	<bean id="bookRepositoryTest" scope="singleton" class="ar.com.masch.exercise.learning.repository.book.BookRepositoryTest" />
+	<bean id="chapterBookRepositoryTest" scope="singleton" class="ar.com.masch.exercise.learning.repository.book.ChapterBookRepositoryTest" />
 
 </beans>

@@ -14,6 +14,7 @@
         <class>ar.com.masch.exercise.learning.entity.base.RoutineBaseEntity</class>
         <class>ar.com.masch.exercise.learning.entity.base.ExerciseBaseEntity</class>
         <class>ar.com.masch.exercise.learning.entity.base.ExerciseLevelBaseEntity</class>
+        <class>ar.com.masch.exercise.learning.entity.base.RoutineExerciseBaseEntity</class>
         
 		<class>ar.com.masch.exercise.learning.entity.book.BookEntity</class>
 		<class>ar.com.masch.exercise.learning.entity.book.ChapterBookEntity</class>

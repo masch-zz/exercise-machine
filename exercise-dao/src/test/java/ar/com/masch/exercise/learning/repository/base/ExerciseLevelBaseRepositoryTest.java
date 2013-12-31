@@ -3,12 +3,11 @@ package ar.com.masch.exercise.learning.repository.base;
 import java.util.List;
 import java.util.ArrayList;
 
-import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import ar.com.masch.exercise.learning.entity.base.ExerciseBaseEntity;
 import ar.com.masch.exercise.learning.entity.base.LevelBaseEntity;
+import ar.com.masch.exercise.learning.entity.base.ExerciseBaseEntity;
 import ar.com.masch.exercise.learning.repository.CRUDRepositoryBaseTest;
 import ar.com.masch.exercise.learning.entity.base.ExerciseLevelBaseEntity;
 import ar.com.masch.exercise.learning.repository.ExerciseLevelBaseRepository;
@@ -28,7 +27,7 @@ public class ExerciseLevelBaseRepositoryTest extends CRUDRepositoryBaseTest<Exer
 	private LevelBaseEntity levelBaseEntity2;
 	private ExerciseBaseEntity exerciseBaseEntity1;
 	private ExerciseBaseEntity exerciseBaseEntity2;
-	
+		
 	@Override
 	public void fillElementsSamples() {
 		ArrayList<ExerciseLevelBaseEntity> elementsSamples = new ArrayList<ExerciseLevelBaseEntity>();
@@ -84,7 +83,7 @@ public class ExerciseLevelBaseRepositoryTest extends CRUDRepositoryBaseTest<Exer
 		
 	}
 	
-	@Test
+	//@Test
 	public void doTest() {
 
 		this.levelBaseRepositoryTest.doTest();
