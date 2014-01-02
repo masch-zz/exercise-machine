@@ -6,11 +6,13 @@ import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import ar.com.masch.exercise.learning.service.RoutineService;
+import ar.com.masch.exercise.learning.dto.exercise.RoutineDTO;
 import ar.com.masch.exercise.learning.factory.RoutineDTOFactory;
 import ar.com.masch.exercise.learning.repository.AuthorRepository;
+import ar.com.masch.exercise.learning.entity.base.LevelBaseEntity;
 import ar.com.masch.exercise.learning.entity.book.ChapterBookEntity;
 import ar.com.masch.exercise.learning.entity.base.RoutineBaseEntity;
-import ar.com.masch.exercise.learning.dto.exercise.RoutineDTO;
+import ar.com.masch.exercise.learning.entity.base.ExerciseBaseEntity;
 import ar.com.masch.exercise.learning.dto.exercise.RoutineExerciseDTO;
 import ar.com.masch.exercise.learning.repository.RoutineBaseRepository;
 import ar.com.masch.exercise.learning.factory.RoutineExerciseDTOFactory;
@@ -20,18 +22,18 @@ import ar.com.masch.exercise.learning.repository.book.ChapterBookRepository;
 import ar.com.masch.exercise.learning.repository.RoutineExerciseBaseRepository;
 
 public class RoutineServiceImpl implements RoutineService {
+	
+	@Autowired
+	private AuthorRepository authorRepository;
 
 	@Autowired
 	private RoutineBaseRepository routineBaseRepository;
 	
 	@Autowired
-	private RoutineExerciseBaseRepository routineExeciseBaseRepository;
-	
-	@Autowired
 	private ChapterBookRepository chapterBookRepository;
 	
 	@Autowired
-	private AuthorRepository authorRepository;
+	private RoutineExerciseBaseRepository routineExeciseBaseRepository;
 
 	public void setRoutineBaseRepository(RoutineBaseRepository routineBaseRepository) {
 		this.routineBaseRepository = routineBaseRepository;
@@ -43,14 +45,19 @@ public class RoutineServiceImpl implements RoutineService {
 		
 		for (RoutineExerciseBaseEntity routineExerciseBaseEntity : routineExerciseBaseEntities) {
 			ExerciseLevelBaseEntity exerciseLevelBaseEntity = routineExerciseBaseEntity.getExerciseLevelBaseEntity();
+			ExerciseBaseEntity exerciseBaseEntity = exerciseLevelBaseEntity.getExerciseBaseEntity();
 			ChapterBookEntity chapterBookEntity = exerciseLevelBaseEntity.getChapterBookEntity();
+			LevelBaseEntity levelBaseEntity = exerciseLevelBaseEntity.getLevelBaseEntity();
 				
 			RoutineExerciseDTO routineExerciseDTO = RoutineExerciseDTOFactory.create(
-					                                	exerciseLevelBaseEntity.getExerciseBaseEntity().getName(),
+														exerciseBaseEntity.getName(),
 					                                	routineExerciseBaseEntity.getPositionOrder(),
 					                                	exerciseLevelBaseEntity.getVelocity(),
-					                                	exerciseLevelBaseEntity.getLevelBaseEntity().getName(),
-					                                	chapterBookEntity.getName());
+					                                	levelBaseEntity.getName(),
+					                                	chapterBookEntity.getName(),
+					                                	exerciseBaseEntity.getType(),
+					                                	exerciseLevelBaseEntity.getSoundFileName(),
+					                                	exerciseBaseEntity.getPatternFileName());
 			
 			routineExerciseDTOList.add(routineExerciseDTO);
 		}

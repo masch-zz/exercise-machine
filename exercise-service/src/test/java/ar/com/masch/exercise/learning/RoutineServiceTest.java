@@ -26,11 +26,14 @@ public class RoutineServiceTest {
 		
 		Assert.assertNotNull(source);
 		Assert.assertNotNull(destiny);
+		Assert.assertNotEquals(source, destiny);
 		Assert.assertEquals(source.getName(), destiny.getName());
 		Assert.assertEquals(source.getLevel(), destiny.getLevel());
 		Assert.assertEquals(source.getIndex(), destiny.getIndex());
 		Assert.assertEquals(source.getChapter(), destiny.getChapter());
-		Assert.assertEquals(source.getVelocity(), destiny.getVelocity());		
+		Assert.assertEquals(source.getVelocity(), destiny.getVelocity());
+		Assert.assertEquals(source.getSoundFileName(), destiny.getSoundFileName());
+		Assert.assertEquals(source.getPatternFileName(), destiny.getPatternFileName());
 		
 	}
 	

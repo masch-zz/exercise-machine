@@ -41,8 +41,8 @@ public class ExerciseLevelBaseRepositoryTest extends CRUDRepositoryBaseTest<Exer
 		ArrayList<ExerciseLevelBaseEntity> elementsSamplesByExerciseBase2 = new ArrayList<ExerciseLevelBaseEntity>();
 		
 		for (Long i = 0L; i < 5; ++i) {
-			ExerciseLevelBaseEntity exerciseLevelBaseEntity1 = new ExerciseLevelBaseEntity(null, this.levelBaseEntity1, this.exerciseBaseEntity1, i);
-			ExerciseLevelBaseEntity exerciseLevelBaseEntity2 = new ExerciseLevelBaseEntity(null, this.levelBaseEntity2, this.exerciseBaseEntity2, null);
+			ExerciseLevelBaseEntity exerciseLevelBaseEntity1 = new ExerciseLevelBaseEntity(null, this.levelBaseEntity1, this.exerciseBaseEntity1, i, "sound" + i);
+			ExerciseLevelBaseEntity exerciseLevelBaseEntity2 = new ExerciseLevelBaseEntity(null, this.levelBaseEntity2, this.exerciseBaseEntity2, null, "sound" + i+1);
 			
 			elementsSamples.add(exerciseLevelBaseEntity1);
 			elementsSamples.add(exerciseLevelBaseEntity2);
@@ -77,9 +77,11 @@ public class ExerciseLevelBaseRepositoryTest extends CRUDRepositoryBaseTest<Exer
 		super.assertNotEqualsValuesBase(obj1, obj2);
 		
 		assertEquals(obj1.getVelocity(), obj2.getVelocity());
+		assertEquals(obj1.getSoundFileName(), obj2.getSoundFileName());
 		
 		this.levelBaseRepositoryTest.assertEqualsValuesBase(obj1.getLevelBaseEntity(), obj2.getLevelBaseEntity());
 		this.exerciseBaseRepositoryTest.assertEqualsValuesBase(obj1.getExerciseBaseEntity(), obj2.getExerciseBaseEntity());
+
 		
 	}
 	

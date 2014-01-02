@@ -4,7 +4,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import ar.com.masch.exercise.learning.repository.book.BookRepositoryTest;
@@ -16,7 +15,7 @@ import ar.com.masch.exercise.learning.repository.base.ExerciseBaseRepositoryTest
 import ar.com.masch.exercise.learning.repository.base.ExerciseLevelBaseRepositoryTest;
 import ar.com.masch.exercise.learning.repository.base.RoutineExerciseBaseRespositoryTest;
 
-@Transactional
+//@Transactional
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("/ctx/exercise-repository-test-context.xml")
 public class RunnableCRUDRepositoryBaseTest<T> {

@@ -22,9 +22,12 @@ public class ExerciseLevelBaseEntity extends BaseEntity {
 	@JoinColumn(name = "LEVEL_ID", nullable = false)
 	private LevelBaseEntity levelBaseEntity;
 	
-	@ManyToOne()
+	@ManyToOne
 	@JoinColumn(name = "EXERCISE_BASE_ID", nullable = false)
 	private ExerciseBaseEntity exerciseBaseEntity;
+	
+	@Column(name="SOUND_FILE_NAME", unique=false, nullable = true)
+	private String soundFileName;
 	
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinTable(name = "exerc_lev_chap_book", 
@@ -36,9 +39,10 @@ public class ExerciseLevelBaseEntity extends BaseEntity {
 		super();
 	}
 	
-	public ExerciseLevelBaseEntity(Long id, LevelBaseEntity levelBaseEntity, ExerciseBaseEntity exerciseBaseEntity, Long velocity) {
+	public ExerciseLevelBaseEntity(Long id, LevelBaseEntity levelBaseEntity, ExerciseBaseEntity exerciseBaseEntity, Long velocity, String soundFileName) {
 		super(id);
 		this.velocity = velocity;
+		this.soundFileName = soundFileName;
 		this.levelBaseEntity = levelBaseEntity;
 		this.exerciseBaseEntity = exerciseBaseEntity;
 	}
@@ -74,11 +78,20 @@ public class ExerciseLevelBaseEntity extends BaseEntity {
 	public void setChapterBookEntity(ChapterBookEntity chapterBookEntity) {
 		this.chapterBookEntity = chapterBookEntity;
 	}
+
+	public String getSoundFileName() {
+		return soundFileName;
+	}
+	
+	public void setSoundFileName(String soundFileName) {
+		this.soundFileName = soundFileName;
+	}
 	
 	@Override
 	public String toString() {
 		String result = super.toString() + 
 		        		"\nVelocity: " + this.velocity.toString() + 
+				        "\nSoundFileName: " + this.soundFileName +
 				        "\nLevelBase: " + this.levelBaseEntity.toString() +
 				        "\nExerciseBase: " + this.exerciseBaseEntity.toString() +
 						"\nChapterBook:" + this.chapterBookEntity.toString();
